@@ -21,4 +21,15 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.android.gms:play-services:4.2.+'
+    // The following lines implement maven imports as defined at:
+    // https://code.google.com/p/google-api-java-client/wiki/Setup
+    // Add the Google API client library.
+    compile 'com.google.api-client:google-api-client:1.17.0-rc'
+    compile 'com.google.api-client:google-api-client-android:1.17.0-rc'
+    // Android extensions for Google HTTP Client.
+    compile 'com.google.http-client:google-http-client-android:1.17.0-rc'
+    // This is used by the Google HTTP client library.
+    compile 'com.google.guava:guava:14.0.+'
+    compile files('libs/status-v1-1.18.0-rc-SNAPSHOT.jar')
 }
