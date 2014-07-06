@@ -4,16 +4,38 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
+
+    TextView clientId, title, message, latestVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        clientId = (TextView) findViewById(R.id.clientIDTextView);
+        title = (TextView) findViewById(R.id.titleTextView);
+        message = (TextView) findViewById(R.id.messageTextView);
+        latestVersion = (TextView) findViewById(R.id.latestVersionTextView);
+
+        Button statusCheckButton = (Button) findViewById(R.id.statusCheckButton);
+        statusCheckButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                statusCheck();
+            }
+        });
     }
 
+    public void statusCheck() {
+        Toast.makeText(this, "Not Yet Implemented", Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
