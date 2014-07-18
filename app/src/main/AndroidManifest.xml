@@ -18,6 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ReportListActivity"
+            android:label="@string/title_report_list" >
+        </activity>
+        <activity
+            android:name=".ReportDetailActivity"
+            android:label="@string/title_report_detail"
+            android:parentActivityName=".ReportListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.secrettransaction.report.ReportListActivity" />
+        </activity>
     </application>
 
 </manifest>
