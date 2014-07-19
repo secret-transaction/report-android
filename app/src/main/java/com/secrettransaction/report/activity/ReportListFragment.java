@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.secrettransaction.report.dummy.DummyContent;
+import com.secrettransaction.report.adapter.ReportListAdapter;
 
 /**
  * A list fragment representing a list of Reports. This fragment
@@ -46,7 +46,7 @@ public class ReportListFragment extends ListFragment {
         /**
          * Callback for when an item has been selected.
          */
-        public void onItemSelected(String id);
+        public void onItemSelected(Long id);
     }
 
     /**
@@ -55,7 +55,7 @@ public class ReportListFragment extends ListFragment {
      */
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
-        public void onItemSelected(String id) {
+        public void onItemSelected(Long id) {
         }
     };
 
@@ -70,12 +70,9 @@ public class ReportListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                DummyContent.ITEMS));
+        ReportListAdapter adapter = new ReportListAdapter();
+        setListAdapter(adapter);
+        adapter.syncData();
     }
 
     @Override
@@ -115,7 +112,7 @@ public class ReportListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected(getListAdapter().getItemId(position));
     }
 
     @Override

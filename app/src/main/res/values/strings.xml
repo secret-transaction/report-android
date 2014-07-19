@@ -7,5 +7,6 @@
     <string name="title_report_list">Reports</string>
     <string name="title_report_detail">Report Detail</string>
     <string name="add_new_report">Add New Report</string>
+    <string name="title">Title</string>
 
 </resources>

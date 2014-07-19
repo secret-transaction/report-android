@@ -39,8 +39,8 @@ public class ReportDetailActivity extends Activity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(ReportDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(ReportDetailFragment.ARG_ITEM_ID));
+            arguments.putLong(ReportDetailFragment.ARG_ITEM_ID,
+                    getIntent().getLongExtra(ReportDetailFragment.ARG_ITEM_ID, 0));
             ReportDetailFragment fragment = new ReportDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()

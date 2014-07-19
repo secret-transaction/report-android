@@ -70,13 +70,15 @@ public class ReportListActivity extends Activity implements ReportListFragment.C
      * indicating that the item with the given ID was selected.
      */
     @Override
-    public void onItemSelected(String id) {
+    public void onItemSelected(Long id) {
+        Log.d(TAG, String.format("Selected:%s", id));
+
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(ReportDetailFragment.ARG_ITEM_ID, id);
+            arguments.putLong(ReportDetailFragment.ARG_ITEM_ID, id);
             ReportDetailFragment fragment = new ReportDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
@@ -120,6 +122,8 @@ public class ReportListActivity extends Activity implements ReportListFragment.C
             Dao<ReportImage, Long> reportImageDao = orm.getDao(ReportImage.class);
 
             Report report = new Report();
+            report.setTitle("Test Title");
+            report.setDetail("Test Detail");
             int rowUpdated = reportDao.create(report);
 
             ReportImage image1 = new ReportImage();
@@ -128,8 +132,8 @@ public class ReportListActivity extends Activity implements ReportListFragment.C
             ReportImage image2 = new ReportImage();
             image2.setReport(report);
 
-            reportImageDao.create(image1);
-            reportImageDao.create(image2);
+            rowUpdated += reportImageDao.create(image1);
+            rowUpdated += reportImageDao.create(image2);
 
             Log.d(TAG, String.format("(%s row updated)R:%s, I1:%s, I2:%s", rowUpdated, report, image1, image2));
         } catch (SQLException e) {
