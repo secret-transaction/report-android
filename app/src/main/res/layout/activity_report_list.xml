@@ -1,10 +1,10 @@
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/report_list"
-    android:name="com.secrettransaction.report.ReportListFragment"
+    android:name="com.secrettransaction.report.activity.ReportListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    tools:context="com.secrettransaction.report.ReportListActivity"
+    tools:context="com.secrettransaction.report.activity.ReportListActivity"
     tools:layout="@android:layout/list_content" />

@@ -1,4 +1,4 @@
-package com.secrettransaction.report;
+package com.secrettransaction.report.activity;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -15,6 +15,7 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
+import com.secrettransaction.report.R;
 
 import java.io.IOException;
 

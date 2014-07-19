@@ -1,4 +1,4 @@
-package com.secrettransaction.report;
+package com.secrettransaction.report.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.secrettransaction.report.R;
 
 import com.secrettransaction.report.dummy.DummyContent;
 

@@ -3,5 +3,5 @@
     android:id="@+id/report_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.secrettransaction.report.ReportDetailActivity"
+    tools:context="com.secrettransaction.report.activity.ReportDetailActivity"
     tools:ignore="MergeRootFrame" />

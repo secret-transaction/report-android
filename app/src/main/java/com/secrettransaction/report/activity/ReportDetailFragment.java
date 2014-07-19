@@ -1,4 +1,4 @@
-package com.secrettransaction.report;
+package com.secrettransaction.report.activity;
 
 import android.os.Bundle;
 import android.app.Fragment;

@@ -8,7 +8,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context="com.secrettransaction.report.ReportListActivity">
+    tools:context="com.secrettransaction.report.activity.ReportListActivity">
 
     <!--
     This layout is a two-pane layout for the Reports
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/report_list"
-        android:name="com.secrettransaction.report.ReportListFragment"
+        android:name="com.secrettransaction.report.activity.ReportListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

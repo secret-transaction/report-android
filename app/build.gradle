@@ -33,5 +33,7 @@ dependencies {
     compile 'com.google.http-client:google-http-client-android:1.17.0-rc'
     compile 'com.google.guava:guava:14.0.+'
     // You must install or update the Support Repository through the SDK manager to use this dependency.
-    compile 'com.android.support:support-v4:19.+'
+    compile 'com.android.support:support-v4:20.+'
+    compile files('libs/ormlite-android-4.48.jar')
+    compile files('libs/ormlite-core-4.48.jar')
 }

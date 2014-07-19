@@ -1,11 +1,21 @@
-package com.secrettransaction.report;
+package com.secrettransaction.report.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 
+import com.j256.ormlite.dao.Dao;
+import com.secrettransaction.report.ORMHelper;
 import com.secrettransaction.report.R;
+import com.secrettransaction.report.entity.Report;
+import com.secrettransaction.report.entity.ReportImage;
+
+import java.sql.SQLException;
 
 /**
  * An activity representing a list of Reports. This activity
@@ -23,8 +33,9 @@ import com.secrettransaction.report.R;
  * {@link ReportListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class ReportListActivity extends Activity
-        implements ReportListFragment.Callbacks {
+public class ReportListActivity extends Activity implements ReportListFragment.Callbacks {
+
+    private static final String TAG = ReportListActivity.class.getSimpleName();
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -78,6 +89,51 @@ public class ReportListActivity extends Activity
             Intent detailIntent = new Intent(this, ReportDetailActivity.class);
             detailIntent.putExtra(ReportDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.report_list, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                addReport();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void addReport() {
+        ORMHelper orm = ORMHelper.sharedInstance();
+
+        try {
+            Dao<Report, Long> reportDao = orm.getDao(Report.class);
+            Dao<ReportImage, Long> reportImageDao = orm.getDao(ReportImage.class);
+
+            Report report = new Report();
+            int rowUpdated = reportDao.create(report);
+
+            ReportImage image1 = new ReportImage();
+            image1.setReport(report);
+
+            ReportImage image2 = new ReportImage();
+            image2.setReport(report);
+
+            reportImageDao.create(image1);
+            reportImageDao.create(image2);
+
+            Log.d(TAG, String.format("(%s row updated)R:%s, I1:%s, I2:%s", rowUpdated, report, image1, image2));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -8,9 +8,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:name=".ReportApplication">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +20,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ReportListActivity"
+            android:name=".activity.ReportListActivity"
             android:label="@string/title_report_list" >
         </activity>
         <activity
-            android:name=".ReportDetailActivity"
+            android:name=".activity.ReportDetailActivity"
             android:label="@string/title_report_detail"
-            android:parentActivityName=".ReportListActivity" >
+            android:parentActivityName=".activity.ReportListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.secrettransaction.report.ReportListActivity" />

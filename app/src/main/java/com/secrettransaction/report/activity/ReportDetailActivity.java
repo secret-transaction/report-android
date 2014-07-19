@@ -1,4 +1,4 @@
-package com.secrettransaction.report;
+package com.secrettransaction.report.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
